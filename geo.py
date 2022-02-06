@@ -11,8 +11,19 @@ def stations_by_distance(stations, p):
         distance=haversine(stations[i].coord, p)
         lists.append((stations[i], distance))
     return sorted_by_key(lists, 1, reverse=False)
-#------------------------------------------------# 
+#------------------------------------------------#
+###TASK1C###
+def stations_within_radius(stations, centre, r):
 
+     # Build list of stations
+    stations = build_station_list()
+
+#------------------------------------------------# 
+    for station in stations:
+        if station.name in [
+
+        ]:
+            print(station)
 
 #------------------------------------------------#
 ###TASK 1D###
