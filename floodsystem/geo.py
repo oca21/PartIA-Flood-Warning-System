@@ -28,7 +28,24 @@ def stations_within_radius(stations, centre, r):
 
 #------------------------------------------------#
 ###TASK 1D###
-#def rivers_with_station(stations):
+def rivers_with_station(stations):
+    rivers=[]
+    for i in range(len(stations)):
+        rivers.append(stations[i].river)
+    return set(rivers)
+
+
+
+def stations_by_river(stations):
+    dictrivers={}
+    for i in range(len(stations)):
+        if stations[i].river in dictrivers:
+            dictrivers[stations[i].river].append(stations[i].name)
+        else:
+            dictrivers[stations[i].river]=[stations[i].name]
+    return dictrivers
+
+
 
 
 
