@@ -15,14 +15,13 @@ def stations_by_distance(stations, p):
 #------------------------------------------------#
 ###TASK1C###
 def stations_within_radius(stations, centre, r):
-    stations_within_r=[]
+    stations_within_r = []
 
     stations_with_distance = stations_by_distance(stations, centre) #Get stations and distance from centre 
-    for i in range(len(stations_with_distance)):
-        if stations_with_distance[i][1]<r:
+    for i in range(len(stations_with_distance)): #for each station
+        if stations_with_distance[i][1]<r: 
             stations_within_r.append(stations_with_distance[i][0].name)
     return stations_within_r
-
 
 #------------------------------------------------#
 ###TASK 1D###
