@@ -29,6 +29,7 @@ def stations_by_distance(stations, p):
 #------------------------------------------------#
 ###TASK 1D###
 #def rivers_with_station(stations):
+#smth.river
 
     
 
