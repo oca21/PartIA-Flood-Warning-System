@@ -42,7 +42,29 @@ def stations_by_river(stations):
             dictrivers[stations[i].river]=[stations[i].name]
     return dictrivers
 
+#------------------------------------------------#
+###TASK 1E###
+def rivers_by_station_number(stations, N):
+    numberrivers={}
+    for i in range(len(stations)): #makes a dictionay with the key being the name of the river and the item being the number of stations by the river
+        if stations[i].river in numberrivers:
+            numberrivers[stations[i].river]+=1
+        else:
+            numberrivers[stations[i].river]=1 
+    listrivers=(numberrivers.items()) #Converts it to a list of tuples of the form (river, number of stations by this river)
+    listrivers=sorted_by_key(listrivers, i=1, reverse=True) #Sorts the list of tuples by number of river (in descending order)
+    printthis=[]
+    for i in range(N): #Adds the first N stations to a list to be diisplayed
+        printthis.append(listrivers[i])
+    for i in range(N, len(listrivers)):
+        if listrivers[N-1]==listrivers[i]: #Checks if there are any other river with the same number of stations as the Nth river
+            printthis.append(listrivers[i]) 
+    return printthis
 
+        
+        
+        
+    
 
 
 #------------------------------------------------#
