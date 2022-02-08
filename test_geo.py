@@ -1,45 +1,69 @@
 #TESTING GEO.PY#
 from floodsystem.geo import stations_by_distance
+from floodsystem.station import MonitoringStation
 
-
-class MonitoringStation:
-
-    def __init__(self, station_id, measurement_id, name, coord, low_high_levels, river, town):
-        self.station_id = station_id
-        self.measurement_id = measurement_id
-        self.name = name
-        self.coord = coord
-        self.low_high_levels = low_high_levels
-        self.river = river
-        self.town = town
-
-    def __repr__(self) -> str:
-        print(self.name)
-        return self.name
-
-
-TestStation1= MonitoringStation(
-station_id='Test Station 1 station id',
-measure_id='Test station 1 measure id',
-label='test station 1'
-coord=(0,0,1)
-typical_range=(-1,3),
-river='Test station 1 river',
-town='Test station 1 town')
-
-TestStation2= MonitoringStation(
-station_id='Test Station 2 station id',
-measure_id='Test station 2 measure id',
-label='test station 2'
-coord=(1,2,3)
-typical_range=(-3,3),
-river='Test station 2 river',
-town='Test station 2 town')
-
-
-stations=[TestStation1, TestStation2]
-
-
-#TEST TASK 1B
+#TEST STATIONS BY DISTANCE
 #------------------------------------------------
-assert stations_by_distance(stations, (0, 0))
+def test_stations_by_distance():
+    s_id = "testSid1"
+    m_id = "testMid1"
+    label = "TS1"
+    coord = (1.0, 4.0)
+    trange = (-2, 5)
+    river = "River 1"
+    town = "My Town 1"
+    Test1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    s_id = "testSid2"
+    m_id = "testMid2"
+    label = "TS2"
+    coord = (0.0, 1.0)
+    trange = (-2, 2)
+    river = "River 2"
+    town = "Town 2"
+    Test2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    s_id = "testSid3"
+    m_id = "testMid3"
+    label = "TS3"
+    coord = (1.0, 1.0)
+    trange = (-2, 2)
+    river = "River 3"
+    town = "Town 3"
+    Test3 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    stations=[Test1, Test2, Test3]
+    TestResult=stations_by_distance(stations, (0, 0))
+    assert (TestResult[0][0], TestResult[1][0], TestResult[2][0]) == (Test2, Test3, Test1)
+
+#TEST RIVERS WITH STATIONS
+def test_rivers_with_station():
+    s_id = "testSid1"
+    m_id = "testMid1"
+    label = "TS1"
+    coord = (1.0, 4.0)
+    trange = (-2, 5)
+    river = "River Thames"
+    town = "My Town 1"
+    Test1 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    s_id = "testSid2"
+    m_id = "testMid2"
+    label = "TS2"
+    coord = (0.0, 1.0)
+    trange = (-2, 2)
+    river = "River Thames"
+    town = "Town 2"
+    Test2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    s_id = "testSid3"
+    m_id = "testMid3"
+    label = "TS3"
+    coord = (1.0, 1.0)
+    trange = (-2, 2)
+    river = "River 3"
+    town = "Town 3"
+    Test3 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+
+#rivers_with_station, stations_by_river

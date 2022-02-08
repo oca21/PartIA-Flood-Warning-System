@@ -10,6 +10,5 @@ for i in range(len(sorted_stations)):
         closest.append((sorted_stations[i][0].name, sorted_stations[i][0].town, sorted_stations[i][1]))
     if i > len(sorted_stations) - 10:
         farthest.append((sorted_stations[i][0].name, sorted_stations[i][0].town, sorted_stations[i][1]))
-
 print(closest)
 print(farthest)
