@@ -116,5 +116,4 @@ def test_rivers_with_stations():
     stations=[Test1, Test2, Test3]
     assert rivers_with_station(stations) == {'River 3', 'River Thames'}
 
-#Test Task 1D
-#-----------------------------------------------------
+#Test1C
