@@ -5,7 +5,7 @@ from .utils import sorted_by_key  # noqa
 from floodsystem.stationdata import build_station_list
 #------------------------------------------------#
 ###TASK 1B###
-from haversine import haversine, Unit
+from haversine import haversine
 def stations_by_distance(stations, p):
     lists=[]
     for i in range(len(stations)): #For each station
