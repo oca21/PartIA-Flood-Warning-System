@@ -2,7 +2,7 @@
 from floodsystem.geo import stations_by_distance
 from floodsystem.station import MonitoringStation
 
-#TEST STATIONS BY DISTANCE
+#TEST TASK 1B
 #------------------------------------------------
 def test_stations_by_distance():
     s_id = "testSid1"
