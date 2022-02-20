@@ -29,7 +29,6 @@ class MonitoringStation:
         self.typical_range = typical_range
         self.river = river
         self.town = town
-
         self.latest_level = None
 
     def __repr__(self):
@@ -42,6 +41,7 @@ class MonitoringStation:
         d += "   typical range: {}".format(self.typical_range)
         return d
 
+#-------------------------------------------------------------------------------------------------------#
     #TASK 1F
     def typical_range_consistent(self):
         if (self.typical_range != None): #If the data is available
@@ -51,6 +51,18 @@ class MonitoringStation:
                 return False #Else data is not consistent
         else:
             return False #Data is not consistent if not available
+        
+#-------------------------------------------------------------------------------------------------------#
+    #TASK 2B
+    def relative_water_level(self):
+        if self.typical_range != None and self.latest_level != None: # If the data is available
+            #and self.latest_level != None:
+            current = self.latest_level - self.typical_range[0] #Find how far in between it is
+            levelrange = self.typical_range[1] - self.typical_range[0] # Find the difference between the high and low
+            ratio = current / levelrange # work out the ratio between the difference between the value and minimum to the max differencec
+            return ratio
+        else:
+            return None
 
 
 def inconsistent_typical_range_stations(stations):
@@ -59,3 +71,12 @@ def inconsistent_typical_range_stations(stations):
         if stations[i].typical_range_consistent() == False: #If the station has an inconsistent typical_range
             inconsistent_stations.append(stations[i].name) #Add this station to the inconsistent stations list ß
     return inconsistent_stations
+
+#-------------------------------------------------------------------------------------------------------#
+#testing?
+def consistent_typical_range_stations(stations):
+    consistent_stations = []
+    for i in range(len(stations)): #For each station
+        if stations[i].typical_range_consistent() != False: #If the station has an inconsistent typical_range
+            consistent_stations.append(stations[i]) #Add this station to the inconsistent stations list ß
+    return consistent_stations
