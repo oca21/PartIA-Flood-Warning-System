@@ -53,6 +53,44 @@ def test_stations_by_distance():
     TestResult=stations_by_distance(stations, (0, 0))
     assert (TestResult[0][0], TestResult[1][0], TestResult[2][0]) == (Test2, Test3, Test1)
 
+#Test Task 1C
+#-----------------------------------------------------
+def test_stations_within_radius():
+    # Create a station
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "a"
+    coord = (-0.1, 0.03)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    a = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+     # Create a station
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "b"
+    coord = (0.1, 0.12)
+    trange = (5.2, 3.4445)
+    river = "River X"
+    town = "My Town"
+    b = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+     # Create a station
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "c"
+    coord = (-2.0, 4.0)
+    trange = None
+    river = "River X"
+    town = "My Town"
+    c = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    stations = [a, b, c]
+    stations_near_origin = sorted(stations_within_radius(stations, (0,0), 18))  
+    
+    assert stations_near_origin == [a.name, b.name]
+
 #Test Task 1D
 #-----------------------------------------------------
 #test stations_by_river
