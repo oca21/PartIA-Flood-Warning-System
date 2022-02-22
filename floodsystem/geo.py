@@ -46,7 +46,7 @@ def stations_by_river(stations):
 ###TASK 1E###
 def rivers_by_station_number(stations, N):
     numberrivers={}
-    for i in range(len(stations)): #makes a dictionay with the key being the name of the river and the item being the number of stations by the river
+    for i in range(len(stations)): #makes a dictionary with the key being the name of the river and the item being the number of stations by the river
         if stations[i].river in numberrivers:
             numberrivers[stations[i].river]+=1
         else:
