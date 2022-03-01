@@ -1,0 +1,6 @@
+setuptools~=60.5.0
+haversine~=2.5.1
+matplotlib~=3.5.1
+numpy~=1.22.1
+python-dateutil~=2.8.2
+requests~=2.27.1

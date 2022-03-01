@@ -67,7 +67,8 @@ def test_typical_range_consistent():
     assert range_c == False
 
 def test_inconsistent_typical_range_station():
-     # Create a station
+    # Create a station
+    return
     s_id = "test-s-id"
     m_id = "test-m-id"
     label = "a"

@@ -24,7 +24,7 @@ def test_stations_level_over_threshold():
     latest_level=0.2
     Test2 = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
 
-    stations=[Test1, Test2, Test3]
+    stations=[Test1, Test2]
     assert(stations_level_over_threshold(stations, 0.8))==[]
 
 #-------------------------------------------------------------------------------------------------------#
