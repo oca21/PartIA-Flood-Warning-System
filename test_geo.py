@@ -8,14 +8,14 @@ from floodsystem.station import MonitoringStation
 #Test Task 1B
 #-----------------------------------------------------
 #Test haversine function
-#def test_haversine():
-    #from haversine import haversine
-    #Coord1=(0.0,0.0)
-    #Coord2=(0.1,7.0)
-    #Coord3=(1.0,2.0)
-    #assert haversine(Coord1, Coord1)==0
-    #assert round(haversine(Coord2, Coord1), 1)==778.4
-    #assert round(haversine(Coord3, Coord1),1)==248.6
+def test_haversine():
+    from haversine import haversine
+    Coord1=(0.0,0.0)
+    Coord2=(0.1,7.0)
+    Coord3=(1.0,2.0)
+    assert haversine(Coord1, Coord1)==0
+    assert round(haversine(Coord2, Coord1), 1)==778.4
+    assert round(haversine(Coord3, Coord1),1)==248.6
 
 #test stations_by_distance
 def test_stations_by_distance():
