@@ -1,10 +1,7 @@
 #TESTING GEO.PY#
-<<<<<<< HEAD
 from floodsystem.geo import stations_by_distance
 from floodsystem.geo import stations_within_radius
-=======
 from floodsystem.geo import stations_by_distance, rivers_with_station, stations_by_river, rivers_by_station_number
->>>>>>> 483b5824c155e800612ac3479d0238a69110b655
 from floodsystem.station import MonitoringStation
 
 #Test Task 1B
@@ -194,7 +191,6 @@ def test_rivers_by_station_number():
 
     stations=[Test1, Test2, Test3]
 
-<<<<<<< HEAD
 #Test Task1C#------------------------------
 
 def test_stations_within_radius():
@@ -231,10 +227,7 @@ def test_stations_within_radius():
     stations = [a, b, c]
     stations_near_origin = sorted(stations_within_radius(stations, (0,0), 18))  
     assert stations_near_origin == [a.name, b.name]  
-=======
     assert rivers_by_station_number(stations,2)[0][0] == "River Thames"
     assert rivers_by_station_number(stations,2)[0][1] == 2
     assert rivers_by_station_number(stations,2)[1][0] == "River 3"
     assert rivers_by_station_number(stations,2)[1][1] == 1
-test_rivers_by_station_number()
->>>>>>> 483b5824c155e800612ac3479d0238a69110b655
