@@ -1,5 +1,10 @@
 #TESTING GEO.PY#
+<<<<<<< HEAD
+from floodsystem.geo import stations_by_distance
+from floodsystem.geo import stations_within_radius
+=======
 from floodsystem.geo import stations_by_distance, rivers_with_station, stations_by_river, rivers_by_station_number
+>>>>>>> 483b5824c155e800612ac3479d0238a69110b655
 from floodsystem.station import MonitoringStation
 
 #Test Task 1B
@@ -189,8 +194,47 @@ def test_rivers_by_station_number():
 
     stations=[Test1, Test2, Test3]
 
+<<<<<<< HEAD
+#Test Task1C#------------------------------
+
+def test_stations_within_radius():
+    # Create a station
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "a"
+    coord = (-0.1, 0.03)
+    trange = (-2.3, 3.4445)
+    river = "River X"
+    town = "My Town"
+    a = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+     # Create a station
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "b"
+    coord = (0.1, 0.12)
+    trange = (5.2, 3.4445)
+    river = "River X"
+    town = "My Town"
+    b = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+     # Create a station
+    s_id = "test-s-id"
+    m_id = "test-m-id"
+    label = "c"
+    coord = (-2.0, 4.0)
+    trange = None
+    river = "River X"
+    town = "My Town"
+    c = MonitoringStation(s_id, m_id, label, coord, trange, river, town)
+
+    stations = [a, b, c]
+    stations_near_origin = sorted(stations_within_radius(stations, (0,0), 18))  
+    assert stations_near_origin == [a.name, b.name]  
+=======
     assert rivers_by_station_number(stations,2)[0][0] == "River Thames"
     assert rivers_by_station_number(stations,2)[0][1] == 2
     assert rivers_by_station_number(stations,2)[1][0] == "River 3"
     assert rivers_by_station_number(stations,2)[1][1] == 1
 test_rivers_by_station_number()
+>>>>>>> 483b5824c155e800612ac3479d0238a69110b655

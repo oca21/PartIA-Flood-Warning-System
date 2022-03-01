@@ -99,4 +99,5 @@ def test_inconsistent_typical_range_station():
 
     stations = [a, b, c]
     station_list =(sorted(station.inconsistent_typical_range_stations(stations)))
-    assert station_list == [b.name, c.name]
+    # used online haversine calculator to find coords within radius
+    assert station_list == [a.name, b.name]
