@@ -1,33 +1,20 @@
-from floodsystem.stationdata import build_station_list
-from floodsystem.datafetcher import fetch_measure_levels
-import numpy as np
-import matplotlib.pyplot as plt
-
-import matplotlib
-import datetime
-from floodsystem.stationdata import build_station_list, update_water_levels
-from floodsystem.datafetcher import fetch_measure_levels
-#from floodsystem.flood import stations_highest_rel_level
-#from floodsystem.analysis import polyfit
-#from floodsystem.plot import plot_water_level_with_fit
 stations = build_station_list()
-dt=10
-# for Task 2F
-
-def polyfit(dates, levels, p):
-
-    dates_shifted = []
-    d0 = dates[-1]
-
-    for date in dates:
-        dates_shifted.append(date - d0)
-
-    p_coeff = np.polyfit(dates_shifted, levels, p)
-    poly = np.poly1d(p_coeff)
-
-    return poly, d0
-
-
-dates, levels = fetch_measure_levels(
-        stations[0].measure_id, dt=datetime.timedelta(days=dt))
-print(dates)
+update_water_levels(stations)
+stations_and_rel_level = stations_highest_rel_level(stations, 5)
+for i in range(5):
+    print("loop1")
+    for station in stations:
+        print("loop2")
+        for index, tuple in enumerate(stations_and_rel_level):
+            station_at_risk = None
+            print("loop3")
+            for station in stations:
+                print("loop4")
+                if station.name == tuple[0]:
+                    station_at_risk = station
+                    dates, levels = fetch_measure_levels(station.measure_id, dt=datetime.timedelta(days=2))
+                    print("loop5")
+                    if dates:
+                        plot_water_level_with_fit(station, dates, levels, 4)
+                    else:
+                        print("Could not fetch measure levels for", station.name)

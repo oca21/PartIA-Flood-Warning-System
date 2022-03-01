@@ -25,9 +25,13 @@ def stations_highest_rel_level(stations, N):
         if stations[i].relative_water_level() != None and stations[i].typical_range_consistent() != False and stations[i].relative_water_level()<20:
             ratio=stations[i].relative_water_level()
             listuple.append((stations[i].name, ratio))
-    sortedstations=sorted_by_key(listuple, 1, reverse=True)
+    if listuple != []:
+        sortedstations=sorted_by_key(listuple, 1, reverse=True)
+    else:
+        sortedstations=[]
     for i in range(N):
-        outputlist.append((sortedstations[i][0], sortedstations[i][1]))
+        if sortedstations != []:
+            outputlist.append((sortedstations[i][0], sortedstations[i][1]))
     return outputlist
 
 #-------------------------------------------------------------------------------------------------------#
